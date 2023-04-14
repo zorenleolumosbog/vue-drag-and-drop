@@ -3,67 +3,71 @@
         <div class="row">
             <div class="col-3">
                 <h3>Draggable 1</h3>
-        
-                <draggable
-                    class="list-group"
-                    tag="transition-group"
-                    :component-data="{
-                    tag: 'ul',
-                    type: 'transition-group',
-                    name: !dragging ? 'flip-list' : null
-                    }"
-                    :move="checkMove"
-                    v-model="state.list1"
-                    v-bind="dragOptions"
-                    @start="dragging = true"
-                    @end="dragging = false"
-                    item-key="order"
-                >
-                    <template #item="{ element }">
-                    <li class="list-group-item">
-                        <i
-                        :class="
-                            element.fixed ? 'fa fa-anchor' : 'glyphicon glyphicon-pushpin'
-                        "
-                        @click="element.fixed = !element.fixed"
-                        aria-hidden="true"
-                        ></i>
-                        {{ element.name }}
-                    </li>
-                    </template>
-                </draggable>
+                
+                <div class="v-card">
+                    <draggable
+                        class="list-group"
+                        tag="transition-group"
+                        :component-data="{
+                        tag: 'ul',
+                        type: 'transition-group',
+                        name: !dragging ? 'flip-list' : null
+                        }"
+                        :move="checkMove"
+                        v-model="state.list1"
+                        v-bind="dragOptions"
+                        @start="dragging = true"
+                        @end="dragging = false"
+                        item-key="order"
+                    >
+                        <template #item="{ element }">
+                        <li class="list-group-item">
+                            <i
+                            :class="
+                                element.fixed ? 'fa fa-anchor' : 'glyphicon glyphicon-pushpin'
+                            "
+                            @click="element.fixed = !element.fixed"
+                            aria-hidden="true"
+                            ></i>
+                            {{ element.name }}
+                        </li>
+                        </template>
+                    </draggable>
+                </div>
             </div>
             <div class="col-3">
                 <h3>Draggable 2</h3>
-        
-                <draggable
-                    class="list-group"
-                    tag="transition-group"
-                    :component-data="{
-                    tag: 'ul',
-                    type: 'transition-group',
-                    name: !dragging ? 'flip-list' : null
-                    }"
-                    :move="checkMove"
-                    v-model="state.list2"
-                    v-bind="dragOptions"
-                    @start="dragging = true"
-                    @end="dragging = false"
-                    item-key="order"
-                >
-                    <template #item="{ element }">
-                    <li class="list-group-item">
-                        <i
-                        :class="
-                            element.fixed ? 'fa fa-anchor' : 'glyphicon glyphicon-pushpin'
-                        "
-                        @click="element.fixed = !element.fixed"
-                        aria-hidden="true"
-                        ></i>
-                        {{ element.name }}
-                    </li>
-                    </template>
-                </draggable>
+                
+                <div class="v-card">
+                    <draggable
+                        class="list-group"
+                        tag="transition-group"
+                        :component-data="{
+                        tag: 'ul',
+                        type: 'transition-group',
+                        name: !dragging ? 'flip-list' : null
+                        }"
+                        :move="checkMove"
+                        v-model="state.list2"
+                        v-bind="dragOptions"
+                        @start="dragging = true"
+                        @end="dragging = false"
+                        item-key="order"
+                    >
+                        <template #item="{ element }">
+                        <li class="list-group-item">
+                            <i
+                            :class="
+                                element.fixed ? 'fa fa-anchor' : 'glyphicon glyphicon-pushpin'
+                            "
+                            @click="element.fixed = !element.fixed"
+                            aria-hidden="true"
+                            ></i>
+                            {{ element.name }}
+                        </li>
+                        </template>
+                    </draggable>
+                </div>
             </div>
         
             <div class="col-3">
@@ -143,5 +147,11 @@ pre {
   background-color: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+.v-card {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 9.5px;
 }
 </style>
