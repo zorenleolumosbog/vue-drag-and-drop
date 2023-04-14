@@ -3,14 +3,11 @@
         <div class="row">
             <div class="col-2">
                 <div class="form-group">
-                    <div
-                        class="btn-group-vertical buttons"
-                        role="group"
-                        aria-label="Basic example"
-                    >
-                        <button class="btn btn-secondary" @click="add">Add</button>
-                        <button class="btn btn-secondary" @click="replace">Replace</button>
-                    </div>
+                    <button class="btn btn-secondary button" @click="sort">
+                        To original order
+                    </button>
+                    <button class="btn btn-secondary m-y" @click="add">Add</button>
+                    <button class="btn btn-secondary m-1" @click="replace">Replace</button>
             
                     <div class="form-check">
                         <input
@@ -28,21 +25,33 @@
                 <h3>Draggable {{ draggingInfo }}</h3>
         
                 <draggable
-                :list="state.list"
-                :disabled="!enabled"
-                item-key="name"
                 class="list-group"
-                ghost-class="ghost"
+                tag="transition-group"
+                :component-data="{
+                tag: 'ul',
+                type: 'transition-group',
+                name: !dragging ? 'flip-list' : null
+                }"
                 :move="checkMove"
+                v-model="state.list"
+                v-bind="dragOptions"
                 @start="dragging = true"
                 @end="dragging = false"
-                >
+                item-key="order"
+            >
                 <template #item="{ element }">
-                    <div class="list-group-item" :class="{ 'not-draggable': !enabled }">
+                <li class="list-group-item">
+                    <i
+                    :class="
+                        element.fixed ? 'fa fa-anchor' : 'glyphicon glyphicon-pushpin'
+                    "
+                    @click="element.fixed = !element.fixed"
+                    aria-hidden="true"
+                    ></i>
                     {{ element.name }}
-                    </div>
+                </li>
                 </template>
-                </draggable>
+            </draggable>
             </div>
         
             <div class="col-3">
@@ -50,7 +59,7 @@
             </div>
         </div>
     </div>
-  </template>
+</template>
   
 <script setup lang="ts">
     import draggable from 'vuedraggable';
@@ -72,6 +81,19 @@
         return dragging ? "under drag" : "";
     });
 
+    const dragOptions = computed(() => {
+      return {
+        animation: 200,
+        group: "description",
+        disabled: false,
+        ghostClass: "ghost"
+      };
+    });
+
+    const sort = () => {
+      state.list = state.list.sort((a, b) => a.id - b.id);
+    };
+
     const add = () => {
         state.list.push({ name: "Juan " + id, id: id++ });
     };
@@ -83,29 +105,38 @@
     const checkMove = (event: any) => {
         console.log("Future index: " + event.draggedContext.futureIndex);
     };
-  </script>
-  <style scoped>
-  .buttons {
-    margin-top: 35px;
-  }
-  .ghost {
-    opacity: 0.5;
-    background: #c8ebfb;
-  }
-  .not-draggable {
-    cursor: no-drop;
-  }
-  pre {
-    display: block;
-    padding: 9.5px;
-    margin: 0 0 10px;
-    font-size: 13px;
-    line-height: 1.42857143;
-    color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+</script>
+<style scoped>
+.flip-list-move {
+  transition: transform 0.5s;
 }
-  </style>
+.no-move {
+  transition: transform 0s;
+}
+.ghost {
+  opacity: 0.5;
+  background: #f0f0f0;
+}
+.list-group {
+  min-height: 20px;
+}
+.list-group-item {
+  cursor: move;
+}
+.list-group-item i {
+  cursor: pointer;
+}
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+</style>
