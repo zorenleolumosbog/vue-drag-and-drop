@@ -5,6 +5,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'two-list',
+      component: () => import('../views/TwoList.vue')
+    },
+    {
+      path: '/sorting-list',
       name: 'sorting-list',
       component: () => import('../views/SortingList.vue')
     }

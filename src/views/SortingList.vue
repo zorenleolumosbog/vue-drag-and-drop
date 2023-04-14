@@ -22,7 +22,7 @@
             </div>
         
             <div class="col-6">
-                <h3>Draggable {{ draggingInfo }}</h3>
+                <h3>Draggable</h3>
         
                 <draggable
                 class="list-group"
@@ -75,10 +75,6 @@
             { name: "Joao", id: 1 },
             { name: "Jean", id: 2 }
         ]
-    });
-
-    const draggingInfo = computed(() => {
-        return dragging ? "under drag" : "";
     });
 
     const dragOptions = computed(() => {
