@@ -5,13 +5,23 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'sort-list',
+      component: () => import('../views/SortList.vue')
+    },
+    {
+      path: '/two-list',
       name: 'two-list',
       component: () => import('../views/TwoList.vue')
     },
     {
-      path: '/sorting-list',
-      name: 'sorting-list',
-      component: () => import('../views/SortingList.vue')
+      path: '/control-clone',
+      name: 'control-clone',
+      component: () => import('../views/ControlClone.vue')
+    },
+    {
+      path: '/table-list',
+      name: 'table-list',
+      component: () => import('../views/TableList.vue')
     }
   ]
 })

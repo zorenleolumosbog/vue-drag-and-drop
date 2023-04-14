@@ -1,4 +1,5 @@
 <template>
+    <the-header></the-header>
     <div class="container mt-5">
         <div class="row">
             <div class="col-3">
@@ -82,6 +83,7 @@
 </template>
   
 <script setup lang="ts">
+    import TheHeader from './TheHeader.vue';
     import draggable from 'vuedraggable';
     import { ref, reactive, computed } from 'vue';
 
@@ -100,7 +102,6 @@
             { name: "Johnson", id: 7 }
         ]
     });
-    
 
     const dragOptions = computed(() => {
       return {
@@ -123,8 +124,8 @@
   transition: transform 0s;
 }
 .ghost {
-  opacity: 0.5;
   background: #f0f0f0;
+  color: transparent;
 }
 .list-group {
   min-height: 20px;
