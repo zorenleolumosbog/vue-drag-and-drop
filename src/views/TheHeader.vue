@@ -19,13 +19,11 @@
                 <li class="nav-item">
                     <router-link class="nav-link" to="/table-list">Table Listing</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/handle-icon">Handle Icon</router-link>
+                </li>
             </ul>
             </div>
         </div>
     </nav>
 </template>
-<script setup lang="ts">
-    import { useRouter } from 'vue-router';
-
-    const router = useRouter();
-</script>

@@ -22,6 +22,11 @@ const router = createRouter({
       path: '/table-list',
       name: 'table-list',
       component: () => import('../views/TableList.vue')
+    },
+    {
+      path: '/handle-icon',
+      name: 'handle-icon',
+      component: () => import('../views/HandleIcon.vue')
     }
   ]
 })
