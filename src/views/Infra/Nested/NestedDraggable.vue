@@ -8,7 +8,7 @@
       item-key="name"
     >
       <template #item="{ element }">
-        <li>
+        <li class="mt-2">
           <p>{{ element.name }}</p>
           <nested-draggable :tasks="element.tasks" />
         </li>

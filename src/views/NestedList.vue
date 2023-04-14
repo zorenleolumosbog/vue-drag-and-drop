@@ -21,31 +21,34 @@
     const state = reactive({
         list: [
             {
-            name: "task 1",
+            name: "Task 1",
             tasks: [
                 {
-                    name: "task 2",
+                    name: "Task 2",
                     tasks: []
                 }
             ]
             },
             {
-            name: "task 3",
+            name: "Task 3",
             tasks: [
                 {
-                    name: "task 4",
+                    name: "Task 4",
                     tasks: []
                 }
             ]
             },
             {
-            name: "task 5",
+            name: "Task 5",
                 tasks: []
             }
         ]
     });
 </script>
 <style scoped>
+ul, li {
+  cursor: move;
+}
 pre {
   display: block;
   padding: 9.5px;
