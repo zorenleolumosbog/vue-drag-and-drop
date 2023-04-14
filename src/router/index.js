@@ -27,6 +27,11 @@ const router = createRouter({
       path: '/handle-icon',
       name: 'handle-icon',
       component: () => import('../views/HandleIcon.vue')
+    },
+    {
+      path: '/nested-list',
+      name: 'nested-list',
+      component: () => import('../views/NestedList.vue')
     }
   ]
 })
