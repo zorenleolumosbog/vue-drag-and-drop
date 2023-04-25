@@ -1,4 +1,7 @@
-# chat-socket.io
+
+
+https://user-images.githubusercontent.com/22342082/234157918-c5f337d6-bee5-4fde-8d57-18f30b92d8bf.mp4
+
 
 This template should help get you started developing with Vue 3 in Vite.
 
